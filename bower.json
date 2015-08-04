@@ -1,18 +1,19 @@
 {
-	"name": "jquery-boilerplate",
-	"version": "3.5.0",
-	"homepage": "http://jqueryboilerplate.com",
+	"name": "am2tools",
+	"version": "0.0.1",
+	"homepage": "http://am2studio.hr",
 	"authors": [
-		"Zeno Rocha <hi@zenorocha.com>"
+		"Tomislav Bukal <tomislav.bukal@am2studio.hr>"
 	],
-	"description": "A jump-start for jQuery plugins development.",
-	"main": "src/jquery.boilerplate.js",
+	"description": "Bunch of jquery helpers (tabs, accordions, etc).",
+	"main": "src/jquery.am2tools.js",
 	"keywords": [
 		"jquery",
 		"plugin",
-		"boilerplate",
 		"jquery-plugin",
-		"jquery-boilerplate"
+		"jquery-tools",
+		"am2studio",
+		"am2tools"
 	],
 	"license": "MIT"
 }

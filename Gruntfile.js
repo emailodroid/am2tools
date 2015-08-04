@@ -23,14 +23,14 @@ module.exports = function(grunt) {
 				banner: "<%= meta.banner %>"
 			},
 			dist: {
-				src: ["src/jquery.boilerplate.js"],
-				dest: "dist/jquery.boilerplate.js"
+				src: ["src/jquery.am2tools.js"],
+				dest: "dist/jquery.am2tools.js"
 			}
 		},
 
 		// Lint definitions
 		jshint: {
-			files: ["src/jquery.boilerplate.js"],
+			files: ["src/jquery.am2tools.js"],
 			options: {
 				jshintrc: ".jshintrc"
 			}
@@ -39,8 +39,8 @@ module.exports = function(grunt) {
 		// Minify definitions
 		uglify: {
 			my_target: {
-				src: ["dist/jquery.boilerplate.js"],
-				dest: "dist/jquery.boilerplate.min.js"
+				src: ["dist/jquery.am2tools.js"],
+				dest: "dist/jquery.am2tools.min.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"
