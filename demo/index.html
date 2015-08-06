@@ -1,15 +1,81 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 		<title>am2tools</title>
+		<link rel="stylesheet" href="style.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="../src/jquery.am2tools.js"></script>
 	</head>
 	<body>
-		<div id="element"></div>
+		<div class="wrapper">
+			<div class="am2tabs 1" data-active="2">
+				<div class="am2headings">
+					<a href="#tab1" data-tab="1">Tab1</a>
+					<a href="#tab2" data-tab="2">Tab2</a>
+					<a href="#tab3" data-tab="3">Tab3</a>
+				</div>
+				<div class="am2panes">
+					<div class="am2pane" data-tab="1">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ea accusamus enim hic, itaque eius quibusdam maxime veritatis maiores, ipsum porro beatae. Quisquam deleniti maxime velit tempora, molestias corrupti iusto!</p>
+					</div>
+					<div class="am2pane" data-tab="2">
+						<div class="am2tabs 2" data-active="1">
+							<div class="am2headings">
+								<a href="#tab21" data-tab="1">Tab1</a>
+								<a href="#tab22" data-tab="2">Tab2</a>
+								<a href="#tab23" data-tab="3">Tab3</a>
+							</div>
+							<div class="am2panes">
+								<div class="am2pane" data-tab="1">
+									<div class="am2tabs 3" data-active="3">
+										<div class="am2headings">
+											<a href="#tab21" data-tab="1">Tab1</a>
+											<a href="#tab22" data-tab="2">Tab2</a>
+											<a href="#tab23" data-tab="3">Tab3</a>
+										</div>
+										<div class="am2panes">
+											<div class="am2pane" data-tab="1">
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ea accusamus enim hic, itaque eius quibusdam maxime veritatis maiores, ipsum porro beatae. Quisquam deleniti maxime velit tempora, molestias corrupti iusto!</p>
+											</div>
+											<div class="am2pane" data-tab="2">
+												<img src="images/logo@2x.png" alt="">
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex iure officia, totam fugiat doloribus corrupti, velit a dolorum unde atque reprehenderit, et eaque? Similique consequuntur a vel quos accusamus, error!</p>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores voluptates consequatur numquam quod optio ducimus dolor accusantium, esse officia similique eum cumque vero pariatur nulla veritatis magni, impedit expedita, rem.</p>
+											</div>
+											<div class="am2pane" data-tab="3">
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla nam, adipisci unde. Esse qui, aliquam blanditiis consequatur modi quasi natus neque eos repellendus, accusamus, facere praesentium voluptate! Voluptas, enim deleniti.</p>
+												<p>Tempore velit consequuntur molestiae illum nam dolore, excepturi mollitia impedit sit aperiam voluptatum suscipit commodi cum praesentium sed esse quam reiciendis temporibus ut aspernatur eligendi maxime! Quidem aliquam beatae, aperiam.</p>
+												<p>Tempore sunt unde velit quisquam, voluptatibus, placeat cupiditate, rerum soluta repellendus minima omnis ratione! Tempora laborum aperiam eligendi repellat quas minima impedit ea magni soluta, consequuntur reiciendis facilis maiores amet.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="am2pane" data-tab="2">
+									<img src="images/logo@2x.png" alt="">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex iure officia, totam fugiat doloribus corrupti, velit a dolorum unde atque reprehenderit, et eaque? Similique consequuntur a vel quos accusamus, error!</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores voluptates consequatur numquam quod optio ducimus dolor accusantium, esse officia similique eum cumque vero pariatur nulla veritatis magni, impedit expedita, rem.</p>
+								</div>
+								<div class="am2pane" data-tab="3">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla nam, adipisci unde. Esse qui, aliquam blanditiis consequatur modi quasi natus neque eos repellendus, accusamus, facere praesentium voluptate! Voluptas, enim deleniti.</p>
+									<p>Tempore velit consequuntur molestiae illum nam dolore, excepturi mollitia impedit sit aperiam voluptatum suscipit commodi cum praesentium sed esse quam reiciendis temporibus ut aspernatur eligendi maxime! Quidem aliquam beatae, aperiam.</p>
+									<p>Tempore sunt unde velit quisquam, voluptatibus, placeat cupiditate, rerum soluta repellendus minima omnis ratione! Tempora laborum aperiam eligendi repellat quas minima impedit ea magni soluta, consequuntur reiciendis facilis maiores amet.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="am2pane" data-tab="3">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla nam, adipisci unde. Esse qui, aliquam blanditiis consequatur modi quasi natus neque eos repellendus, accusamus, facere praesentium voluptate! Voluptas, enim deleniti.</p>
+						<p>Tempore velit consequuntur molestiae illum nam dolore, excepturi mollitia impedit sit aperiam voluptatum suscipit commodi cum praesentium sed esse quam reiciendis temporibus ut aspernatur eligendi maxime! Quidem aliquam beatae, aperiam.</p>
+						<p>Tempore sunt unde velit quisquam, voluptatibus, placeat cupiditate, rerum soluta repellendus minima omnis ratione! Tempora laborum aperiam eligendi repellat quas minima impedit ea magni soluta, consequuntur reiciendis facilis maiores amet.</p>
+					</div>
+				</div>
+			</div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa esse distinctio ipsam. Ipsam, quaerat quis delectus deserunt, accusamus quibusdam quae error adipisci, veritatis aliquid architecto, numquam similique deleniti autem iste!</p>
+		</div>
 		<script>
 			$(function() {
-				$("#element").am2tools({
+				$(".am2tabs").am2tools({
 					activeTab: 1
 				});
 			});

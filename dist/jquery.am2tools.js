@@ -49,10 +49,10 @@
 						// and this.settings
 						// you can add more functions like the one below and
 						// call them like so: this.yourOtherFunction(this.element, this.settings).
-						console.log("xD");
+						this.setTab(this.element, 1);
 				},
-				yourOtherFunction: function () {
-						// some logic
+				setTab: function (element, tabID) {
+						console.log(element, tabID);
 				}
 		});
 

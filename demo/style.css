@@ -1,0 +1,41 @@
+/* demo */
+.wrapper {
+	max-width: 1024px;
+	margin:0 auto;
+}
+/* am2flex */
+.am2tabs {
+	background: #f7f7f7;
+	padding: 24px;
+}
+.am2tabs > .am2headings {
+	margin-bottom: 24px;
+}
+.am2panes {
+	position: relative;
+	height: 0;
+	width: 100%;
+	overflow: hidden;
+	-webkit-transition: height .1s ease-in-out;
+	-o-transition: height .1s ease-in-out;
+	transition: height .1s ease-in-out;
+}
+.am2panes > .am2pane {
+	z-index: 1;
+	position: absolute;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	transform: scale(.9);
+	-webkit-transition: opacity .3s ease-in-out, top .3s ease-in-out, transform .3s ease-in-out;
+	-o-transition: opacity .3s ease-in-out, top .3s ease-in-out, transform .3s ease-in-out;
+	transition: opacity .3s ease-in-out, top .3s ease-in-out, transform .3s ease-in-out;
+}
+.am2panes > .am2pane.active {
+	z-index: 2;
+	opacity: 1;
+	transform: scale(1);
+}
+.am2headings > a.active {
+	color: red;
+}
