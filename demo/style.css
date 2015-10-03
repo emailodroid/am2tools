@@ -16,10 +16,13 @@
 	height: 0;
 	width: 100%;
 	overflow: hidden;
-	-webkit-transition: height .1s ease-in-out;
+	/*-webkit-transition: height .1s ease-in-out;
 	-o-transition: height .1s ease-in-out;
-	transition: height .1s ease-in-out;
+	transition: height .1s ease-in-out;*/
 }
+/*.am2tabs.first-init > .am2panes > .am2pane.active {
+	position: relative;
+}*/
 .am2panes > .am2pane {
 	z-index: 1;
 	position: absolute;

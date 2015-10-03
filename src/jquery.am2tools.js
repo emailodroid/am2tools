@@ -15,8 +15,8 @@
 
 		// Create the defaults once
 		var am2tools = "am2tools",
-				defaults = {
-				activeTab: 0
+			defaults = {
+				//parameter: 0
 		};
 
 		// The actual plugin constructor
@@ -35,8 +35,8 @@
 		// Avoid Plugin.prototype conflicts
 		$.extend(Plugin.prototype, {
 				init: function () {
+						var self = this;
 						var active;
-						var isChildOff;
 						var initPaneHeight;
 						// Place initialization logic here
 						// You already have access to the DOM element and
@@ -44,59 +44,68 @@
 						// and this.settings
 						// you can add more functions like the one below and
 						// call them like so: this.yourOtherFunction(this.element, this.settings).
+
 						//make this am2 element
 						$(this.element).attr("data-am2", "true");
+						//$(this.element).addClass("first-init");
 						//getting active tab by html attribute
 						active = $(this.element).attr("data-active");
 						if(!active){
 							active = 1;
 						}
 
+						//get tab toggles
+						$(this.element).children(".am2headings").children("a").click({element: this.element}, changeTab);
+						function changeTab(event) {
+							var element = $(event.data.element);
+							var dataTab = $(event.currentTarget).attr("data-tab");
+							self.setTab(element, dataTab, self.getPaneHeight(element, dataTab));
+							var parents = $(element).parents(".am2tabs");
+							if(parents.length) {
+								for (var i = 0; i < parents.length; i++) {
+									//get parent active tab
+									var parentActiveTab = $(parents[i]).children(".am2panes").children(".am2pane.active").attr("data-tab");
+								    self.setTab(parents[i], parentActiveTab, self.getPaneHeight(parents[i], parentActiveTab));
+								}
+							}
+							return;
+						}
+
 						//getting first pane height
 						initPaneHeight = this.getPaneHeight(this.element, active);
-						console.log(initPaneHeight);
-						//check if has am2tools element parent
-						isChildOff = $(this.element).parents("[data-am2='true']");
-						if(isChildOff){
-							var updatedParentHeight = initPaneHeight;
-							/*isChildOff.each(function(){
-								updatedParentHeight + $(this).children('.am2panes').innerHeight();
-								console.log($(this).children('.am2panes').innerHeight());
-							});*/
-							for (var i = isChildOff.length, l = 0; i > l; i-- ) {
-							    updatedParentHeight + $(isChildOff[i]).children(".am2panes").innerHeight;
-							    console.log(updatedParentHeight, $(isChildOff[i]));
-							    //$(isChildOf[0]).children('.am2panes').css('height', updatedParentHeight);
+						this.setTab(this.element, active, initPaneHeight);
+
+						//check if is child of another tab object. If it is updates parent heights
+						var parents = $(this.element).parents(".am2tabs");
+						if(parents.length) {
+							for (var i = 0; i < parents.length; i++) {
+								//get parent active tab
+								var parentActiveTab = $(parents[i]).find(".am2pane.active").attr("data-tab");
+							    this.setTab(parents[i], parentActiveTab, this.getPaneHeight(parents[i], parentActiveTab));
 							}
- 							$(".am2tabs.1").children(".am2panes").css("height", updatedParentHeight+updatedParentHeight);
- 							$(".am2tabs.2").children(".am2panes").css("height", updatedParentHeight+updatedParentHeight);
- 							$(".am2tabs.3").children(".am2panes").css("height", updatedParentHeight+updatedParentHeight);
-							//console.log(updatedParentHeight, isChildOff[0], $(this.element).attr('class'));
-							//$(isChildOff[0]).children('.am2panes').css('height', updatedParentHeight);
-
 						}
-						//console.log(isChildOf[0], $(this.element).attr('class'), $(isChildOf[0]).innerHeight()+this.getPaneHeight(this.element, active));
-
-						//$(isChildOf[0]).children('.am2panes').css('height', $(isChildOf[0]).innerHeight()+this.getPaneHeight(this.element, active));
-
-						this.setTab(this.element, active, this.getPaneHeight(this.element, active));
 				},
 				setTab: function (element, tabID, paneHeight) {
-						//console.log(element, tabID, paneHeight);
-						//setting default parameter for .current tab
+						//setting default parameter for .active tab
 						if(!tabID){
 							tabID = 1;
 						}
-						//targeting heading and adding .current
+						//targeting current active tab and clearing class
+						$(element).children(".am2headings").children(".active").removeClass("active");
+						//targeting current active pane and clearing class
+						$(element).children(".am2panes").children(".active").removeClass("active");
+						//targeting heading and adding .active
 						$(element).children(".am2headings").children("a[data-tab='"+tabID+"']").addClass("active");
-						//targeting pane and adding .current
+						//targeting pane and adding .active
 						$(element).children(".am2panes").children(".am2pane[data-tab='"+tabID+"']").addClass("active");
 						//setting pane height
 						$(element).children(".am2panes").css("height", paneHeight);
+
+					return;
 				},
 				getPaneHeight: function (element, tabID) {
 						return $(element).children(".am2panes").children(".am2pane[data-tab='"+tabID+"']").innerHeight();
-				}
+				},
 		});
 
 		// A really lightweight plugin wrapper around the constructor,
