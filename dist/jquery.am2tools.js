@@ -73,7 +73,8 @@
 								for (var i = 0; i < parents.length; i++) {
 									//get parent active tab
 									var parentActiveTab = $(parents[i]).children(".am2panes").children(".am2pane.active").attr("data-tab");
-								    self.setTab(parents[i], parentActiveTab, self.getPaneHeight(parents[i], parentActiveTab));
+								    var parentHeight = self.getPaneHeight(parents[i], parentActiveTab);
+								    self.setTab(parents[i], parentActiveTab, parentHeight);
 								}
 							}
 							return;
@@ -86,12 +87,22 @@
 						//check if is child of another tab object. If it is updates parent heights
 						var parents = $(this.element).parents(".am2tabs");
 						if(parents.length) {
-							for (var i = 0; i < parents.length; i++) {
-								//get parent active tab
-								var parentActiveTab = $(parents[i]).find(".am2pane.active").attr("data-tab");
-							    this.setTab(parents[i], parentActiveTab, this.getPaneHeight(parents[i], parentActiveTab));
+
+							//getting first parent and checking if has active class
+							var parentPanes = $(this.element).parents(".am2pane");
+							if($(parentPanes[0]).hasClass("active")){
+								var childPane = this.getPaneHeight(this.element, active);
+								for (var i = 0; i < parents.length; i++) {
+									//get parent active tab
+									var parentActiveTab = $(parents[i]).children(".am2panes").children(".am2pane.active").attr("data-tab");
+									var parentHeight = this.getPaneHeight(parents[i], parentActiveTab);
+								    this.setTab(parents[i], parentActiveTab, parentHeight+childPane);
+									childPane = childPane + this.getPaneHeight(parents[i], parentActiveTab);
+								}
+
 							}
 						}
+
 				},
 				setTab: function (element, tabID, paneHeight) {
 						//setting default parameter for .active tab
@@ -108,10 +119,12 @@
 						$(element).children(".am2panes").children(".am2pane[data-tab='"+tabID+"']").addClass("active");
 						//setting pane height
 						$(element).children(".am2panes").css("height", paneHeight);
+						$(element).children(".am2panes").attr("data-height", paneHeight);
 
 					return;
 				},
 				getPaneHeight: function (element, tabID) {
+						//console.log($(element).children(".am2panes").children(".am2pane[data-tab='"+tabID+"']").innerHeight());
 						return $(element).children(".am2panes").children(".am2pane[data-tab='"+tabID+"']").innerHeight();
 				},
 		});

@@ -16,9 +16,9 @@
 	height: 0;
 	width: 100%;
 	overflow: hidden;
-	/*-webkit-transition: height .1s ease-in-out;
-	-o-transition: height .1s ease-in-out;
-	transition: height .1s ease-in-out;*/
+	-webkit-transition: height .5s ease-in-out;
+	-o-transition: height .5s ease-in-out;
+	transition: height .5s ease-in-out;
 }
 /*.am2tabs.first-init > .am2panes > .am2pane.active {
 	position: relative;
@@ -30,9 +30,9 @@
 	right: 0;
 	opacity: 0;
 	transform: scale(.9);
-	-webkit-transition: opacity .3s ease-in-out, top .3s ease-in-out, transform .3s ease-in-out;
-	-o-transition: opacity .3s ease-in-out, top .3s ease-in-out, transform .3s ease-in-out;
-	transition: opacity .3s ease-in-out, top .3s ease-in-out, transform .3s ease-in-out;
+	-webkit-transition: opacity .3s ease-out, top .3s ease-in-out, transform .3s ease-out;
+	-o-transition: opacity .3s ease-out, top .3s ease-in-out, transform .3s ease-out;
+	transition: opacity .3s ease-out, top .3s ease-in-out, transform .3s ease-out;
 }
 .am2panes > .am2pane.active {
 	z-index: 2;
