@@ -93,11 +93,16 @@
 							if($(parentPanes[0]).hasClass("active")){
 								var childPane = this.getPaneHeight(this.element, active);
 								for (var i = 0; i < parents.length; i++) {
-									//get parent active tab
-									var parentActiveTab = $(parents[i]).children(".am2panes").children(".am2pane.active").attr("data-tab");
-									var parentHeight = this.getPaneHeight(parents[i], parentActiveTab);
-								    this.setTab(parents[i], parentActiveTab, parentHeight+childPane);
-									childPane = childPane + this.getPaneHeight(parents[i], parentActiveTab);
+									//var parentPanes = $(this.element).parents(".am2pane");
+									if($(parentPanes[i]).hasClass("active")){
+										//get parent active tab
+										var parentActiveTab = $(parents[i]).children(".am2panes").children(".am2pane.active").attr("data-tab");
+										var parentHeight = this.getPaneHeight(parents[i], parentActiveTab);
+									    this.setTab(parents[i], parentActiveTab, parentHeight+childPane);
+										childPane = childPane + this.getPaneHeight(parents[i], parentActiveTab);
+							
+									}
+
 								}
 
 							}
