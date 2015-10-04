@@ -72,7 +72,7 @@
 									var parentHeight = self.getPaneHeight(parents[i], parentActiveTab);
 								    self.setTab(parents[i], parentActiveTab, parentHeight+childPane-oldHeight-parentOldHeight);
 									childPane = childPane + self.getPaneHeight(parents[i], parentActiveTab);
-									parentOldHeight = oldHeight;
+									parentOldHeight = parentOldHeight + oldHeight;
 									oldHeight = $(parents[i]).children(".am2panes").innerHeight();
 								}
 							}
